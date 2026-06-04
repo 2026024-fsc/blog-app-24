@@ -7,10 +7,10 @@ import java.time.LocalDateTime;
 public class Blog {
     String title;
     LocalDateTime data;
-    long id;
+    Long id;
     String main_text;
 
-    public Blog(String title, LocalDateTime data, long id, String main_text){
+    public Blog(String title, LocalDateTime data, Long id, String main_text){
         this.title = title;
         this.data = data;
         this.id = id;
@@ -49,4 +49,3 @@ public class Blog {
         this.main_text = main_text;
     }
 }
-
