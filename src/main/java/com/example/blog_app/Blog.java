@@ -2,50 +2,51 @@ package com.example.blog_app;
 
 import java.time.LocalDateTime;
 
+import lombok.Getter;
+import lombok.Setter;
+
 // import org.springframework.scheduling.config.Task;
 
+@Getter
+@Setter
 public class Blog {
-    String title;
-    LocalDateTime data;
-    Long id;
-    String main_text;
+    private Long id;
+    private String title;
+    private LocalDateTime created_at;
+    private String main_text;
 
-    public Blog(String title, LocalDateTime data, Long id, String main_text){
-        this.title = title;
-        this.data = data;
-        this.id = id;
-        this.main_text = main_text;
-    }
+    // public void setId(Long id) {
+    //     this.id = id;
+    // }
 
-    public String getTitle() {
-        return title;
-    }
+    // public void setTitle(String title) {
+    //     this.title = title;
+    // }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    // public void setCreated_at(LocalDateTime created_at) {
+    //     this.created_at = created_at;
+    // }
 
-    public LocalDateTime getData() {
-        return data;
-    }
+    // public void setMain_text(String main_text) {
+    //     this.main_text = main_text;
+    // }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
-    }
+    // public Long getId() {
+    //     return id;
+    // }
 
-    public long getId() {
-        return id;
-    }
+    // public String getTitle() {
+    //     return title;
+    // }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    // public LocalDateTime getCreated_at() {
+    //     return created_at;
+    // }
 
-    public String getMain_text() {
-        return main_text;
-    }
+    // public String getMain_text() {
+    //     return main_text;
+    // }
 
-    public void setMain_text(String main_text) {
-        this.main_text = main_text;
-    }
+
+
 }
