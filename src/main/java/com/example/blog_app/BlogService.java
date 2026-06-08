@@ -1,7 +1,24 @@
 package com.example.blog_app;
 
-// public class BlogService {
-//     public Optional<Blog> findById(Long id){
-//         return bookRepository.findById(id);
-//     }
-// }
+import java.util.List;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BlogService {
+
+    private final BlogRepository blogRepository;
+
+    public BlogService(BlogRepository blogRepository){
+        this.blogRepository = blogRepository;
+    }
+
+    public Blog Blog(){
+        return blogRepository.save();
+    }
+    
+}
+
+
+// public Optional<Blog> findById(Long id) {
+    //     return bookRepository.findById(id);
+    // }
