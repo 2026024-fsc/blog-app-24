@@ -19,15 +19,15 @@ public class BlogRepository {
                 .list();
     }
 
-    public Optional<Blog> findById(Long id) {
-        return jdbcClient.sql("SELECT  id, title, data, main_text FROM blog WHERE id = :id")
+    public Blog find(Long id) {
+        return jdbcClient.sql("SELECT  id, title, created_at, main_text FROM blog WHERE id = :id")
                 .param("id", id)
                 .query(Blog.class)
-                .optional();
+                .single();
     }
 
     public void save(Blog blog) {
-        jdbcClient.sql("INSERT INTO blog (id, title, created_at, main_text) VALUES (:id, :title, :created_at, :main_text)")
+        jdbcClient.sql("INSERT INTO blog (id, title, created_at, main_text) VALUES (:id, :title, now(), :main_text)")
                 .param("id", blog.getId())
                 .param("title", blog.getTitle())
                 .param("created_at", blog.getCreated_at())

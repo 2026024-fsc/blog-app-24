@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
-    <h1>Spring</h1>
+    <header>
+        <h1>ブログ</h1>
+        <a href="/main">ブログ一覧</a>
+        <a href="/post">新規投稿</a>
+
+    </header>
+
+
+
+    <span th:text="${solo.title}">タイトルが表示</span><br>
+    <span th:text="${solo.created_at}">日付が表示</span><br>
+    <span th:text="${solo.main_text}">本文が表示</span><br>
 </body>
+
 </html>

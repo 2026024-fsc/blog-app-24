@@ -12,8 +12,16 @@ public class BlogService {
         this.blogRepository = blogRepository;
     }
 
-    public Blog Blog(){
-        return blogRepository.save();
+    public List<Blog> findAll(){
+        return blogRepository.findAll();
+    }
+
+    public void save(BlogForm blogForm){
+        blogRepository.save(new Blog(blogForm.getId(),blogForm.getTitle(), blogForm.getCreated_at(), blogForm.getMain_text()));
+    }
+
+    public Blog find(Long id){
+        return blogRepository.find(id);
     }
     
 }

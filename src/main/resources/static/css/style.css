@@ -1,0 +1,180 @@
+/* 全体のリセットと共通設定 */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* コンテナ（中央寄せと幅の制限） */
+body > *:not(header) {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* ヘッダーのスタイリング */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-right: auto; /* タイトルを左端、リンクを右端に寄せる */
+}
+
+header a {
+    color: #3498db;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* ブログ詳細画面の装飾 */
+span[th\:text*="title"] {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+span[th\:text*="created_at"] {
+    display: block;
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+span[th\:text*="main_text"] {
+    display: block;
+    font-size: 16px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    white-space: pre-wrap; /* 改行を反映させる */
+}
+
+/* ブログ一覧画面の装飾 */
+nav table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+nav tr {
+    display: block;
+    background: #ffffff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+nav tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav span[th\:text*="title"] {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+}
+
+/* フォーム（新規投稿）の装飾 */
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+form textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+/* ボタンの装飾 */
+button[type="submit"] {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+form div a {
+    color: #e74c3c;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+form div a:hover {
+    text-decoration: underline;
+}

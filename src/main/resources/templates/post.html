@@ -7,21 +7,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
+    <header>
+        <h1>ブログ</h1>
+        <a href="/main">ブログ一覧</a>
+        <a href="/post">新規投稿</a>
+
+    </header>
+
+
+
     <h2>新規投稿</h2>
-    <form action="/main" method="post">
+    <form action="@{/main}" method="post">
         <!-- タイトル送信フォームを作る -->
         <div class="blogTitle">
             <label for="title">タイトル</label><br>
-            <input type="text" name="タイトル" placeholder="タイトル"><br>
+            <input type="text" name="title" placeholder="タイトル"><br>
         </div>
 
         <!-- 本文入力フォームを作る -->
         <div class="blogMainText">
             <label for="mainText">本文</label><br>
-            <textarea name="mainText" placeholder="本文"
+            <textarea name="main_text" placeholder="本文"
             minlength="1" maxlength="1000"></textarea><br>
         </div>
 

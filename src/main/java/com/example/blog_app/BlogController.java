@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,27 +14,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class BlogController {
 
-    private final BlogRepository blogRepository;
+    private final BlogService blogService;
 
-    public BlogController(BlogRepository blogRepository) {
-        this.blogRepository = blogRepository;
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
     }
 
     @GetMapping("/main")
-    public String main() {// Model model) {
-        // model.addAttribute("title", "今日の天気");
-        blogRepository.findAll();
+    public String main(Model model) {
+        model.addAttribute("blog", blogService.findAll());
+        blogService.findAll();
         return "main";
     }
 
     @PostMapping("/main")
-    public String Post(@ModelAttribute BlogForm form, Model model) {
-        model.addAttribute("id",form.getId());
-        model.addAttribute("title", form.getTitle());
-        model.addAttribute("created_at", form.getCreated_at());
-        model.addAttribute("main_text", form.getMain_text());
-        //TODO: process POST request
-        
-        return "redirect:main";
+    public String Post(BlogForm blogForm) {
+        blogService.save(blogForm);
+        return "redirect:/main";
     }
+
+    @GetMapping("/post")
+    public String Post() {
+        return "post";
+    }
+
+    @GetMapping("/main/{id}/find")
+    public String find(@PathVariable long id, Model model) {
+        Blog blog = blogService.find(id);
+        model.addAttribute("solo", blog);
+        return "blogs";
+    }
+    
+    
 }

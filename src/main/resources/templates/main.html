@@ -6,17 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+    <header>
+        <h1>ブログ</h1>
+        <a href="/main">ブログ一覧</a>
+        <a href="/post">新規投稿</a>
+
+    </header>
+
+
     <h1>ブログ</h1>
     <nav>
-        <ul>
-            <li>名前</li>
-            <!-- <li><a th:href="${index.html}">ホーム</a></li>
-            <li><a th:href="about.html">私たちについて</a></li>
-            <li><a th:href="services.html">サービス</a></li>
-            <li><a th:href="contact.html">お問い合わせ</a></li> -->
-        </ul>
+        <table>
+        <tr th:each="blog:${blog}">
+        <a th:href="@{/main/{id}/find(id=${blog.id})}">
+            <span th:text="${blog.title}">タイトルが表示</span><br>
+            <span th:text="${blog.created_at}">日付が表示</span><br>
+            </a>
+        </tr>
+        </table>
     </nav>
     <!-- <p><span th:text="${title}">今日の天気</span></p> -->
 </body>
