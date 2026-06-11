@@ -16,18 +16,15 @@
 
     </header>
 
-
-    <h1>ブログ</h1>
     <nav>
         <table>
         <tr th:each="blog:${blog}">
         <a th:href="@{/main/{id}/find(id=${blog.id})}">
             <span th:text="${blog.title}">タイトルが表示</span><br>
-            <span th:text="${blog.created_at}">日付が表示</span><br>
+            <!-- <span th:text="${#temporals.format(blog.created_at, 'MM/dd HH:mm')}">日付が表示</span><br> -->
             </a>
         </tr>
         </table>
     </nav>
-    <!-- <p><span th:text="${title}">今日の天気</span></p> -->
 </body>
 </html>

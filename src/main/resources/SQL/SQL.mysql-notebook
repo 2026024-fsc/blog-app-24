@@ -2,7 +2,7 @@
     "type": "MySQLNotebook",
     "version": "1.0",
     "caption": "DB Notebook",
-    "content": "\\about\nCREATE DATABASE blog;\nUSE blog;\n\nCREATE TABLE blog (\n  id                   BIGINT PRIMARY KEY AUTO_INCREMENT,\n  title                VARCHAR(255) NOT NULL,\n  created_at DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  main_text            TEXT NOT NULL\n);\n\n\nSELECT * FROM blog;\n\n\nINSERT INTO blog (title, main_text) VALUES\n  ('私の一日', '今日は、研修をしました。'),\n  ('私の休日', '今日は、大濠公園に行きました。');\n\nUSE blog;\nINSERT INTO blog (title, main_text) VALUES\n  ('私の一日', '今日は、研修をしました。'),\n  ('私の休日', '今日は、大濠公園に行きました。');\n\nSELECT * FROM blog;\n",
+    "content": "\\about\nCREATE DATABASE blog;\nUSE blog;\n\nCREATE TABLE blog (\n  id                   BIGINT PRIMARY KEY AUTO_INCREMENT,\n  title                VARCHAR(255) NOT NULL,\n  created_at DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  main_text            TEXT NOT NULL\n);\n\n\nSELECT * FROM blog;\n\n\nINSERT INTO blog (title, main_text) VALUES\n  ('私の一日', '今日は、研修をしました。'),\n  ('私の休日', '今日は、大濠公園に行きました。');\n\nUSE blog;\nINSERT INTO blog (title, main_text) VALUES\n  ('私の一日', '今日は、研修をしました。'),\n  ('私の休日', '今日は、大濠公園に行きました。');\n\nSELECT * FROM blog;\n\n\n\n\n\n\nSELECT * FROM blog;\nUSE blog;\nSELECT * FROM blog;\nDELETE FROM blog\nWHERE id = 3;\nDELETE FROM blog\nWHERE id = 4;\nDELETE FROM blog\nWHERE id = 5;\nDELETE FROM blog\nWHERE id = 6;\nSELECT * FROM blog;\n",
     "options": {
         "tabSize": 4,
         "indentSize": 4,
@@ -15,11 +15,11 @@
             {
                 "inSelectionMode": false,
                 "selectionStart": {
-                    "lineNumber": 26,
+                    "lineNumber": 44,
                     "column": 1
                 },
                 "position": {
-                    "lineNumber": 26,
+                    "lineNumber": 44,
                     "column": 1
                 }
             }
@@ -27,10 +27,10 @@
         "viewState": {
             "scrollLeft": 0,
             "firstPosition": {
-                "lineNumber": 21,
+                "lineNumber": 38,
                 "column": 1
             },
-            "firstPositionDeltaTop": 38
+            "firstPositionDeltaTop": -18
         },
         "contributionsState": {
             "editor.contrib.folding": {},
@@ -302,10 +302,437 @@
                 "start": 25,
                 "end": 25,
                 "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 19
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 26,
+                "end": 26,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 27,
+                "end": 27,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 28,
+                "end": 31,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 3
+                        },
+                        "contentStart": -1,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 32,
+                "end": 32,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 0,
+                            "index": 0,
+                            "content": "MySQL Error (1046): No database selected",
+                            "language": "ansi"
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": ""
+                    }
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 19
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 33,
+                "end": 33,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "1739874d-3f53-4bae-8629-d31297b76b2d",
+                            "content": "OK, 0 records retrieved in 7.207ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 9
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 34,
+                "end": 34,
+                "language": "mysql",
                 "result": {
                     "type": "resultIds",
                     "list": [
-                        "fbe63ad7-d414-4c3e-fefc-b7a4eca69ef0"
+                        "f20cdf9e-f5c6-48ef-f9a8-b61686fce0dd"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 19
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "49c9680a-84c1-4700-92b4-1c6617fec50e",
+                    "resultId": "f20cdf9e-f5c6-48ef-f9a8-b61686fce0dd",
+                    "rows": [
+                        {
+                            "0": 1,
+                            "1": "私の一日",
+                            "2": "2026-06-05 03:10:11",
+                            "3": "今日は、研修をしました。"
+                        },
+                        {
+                            "0": 2,
+                            "1": "私の休日",
+                            "2": "2026-06-05 03:10:11",
+                            "3": "今日は、大濠公園に行きました。"
+                        },
+                        {
+                            "0": 3,
+                            "1": "あ",
+                            "2": "2026-06-10 05:09:10",
+                            "3": "あ"
+                        },
+                        {
+                            "0": 4,
+                            "1": "あ",
+                            "2": "2026-06-10 05:09:18",
+                            "3": "あ"
+                        },
+                        {
+                            "0": 5,
+                            "1": "あ",
+                            "2": "2026-06-10 05:10:26",
+                            "3": "あ"
+                        },
+                        {
+                            "0": 6,
+                            "1": "あ",
+                            "2": "2026-06-10 05:12:51",
+                            "3": "あ"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 5,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 20,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INT8",
+                                    "SERIAL"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": true
+                        },
+                        {
+                            "title": "title",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "created_at",
+                            "field": "2",
+                            "dataType": {
+                                "type": 26,
+                                "dateTimePrecision": 8,
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false,
+                            "default": "CURRENT_TIMESTAMP"
+                        },
+                        {
+                            "title": "main_text",
+                            "field": "3",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 6 records retrieved in 4.801ms"
+                    },
+                    "totalRowCount": 6,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT * FROM blog",
+                    "updatable": true,
+                    "fullTableName": "blog"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 35,
+                "end": 36,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "d79cb443-86d1-4a01-f3c6-dc1978e0a250",
+                            "content": "OK, 1 row affected in 42.139ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 30
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 37,
+                "end": 38,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "b5756cc2-04a2-4f8f-efb2-b0e7e2f3bb43",
+                            "content": "OK, 1 row affected in 61.937ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 30
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 39,
+                "end": 40,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "6fe8f5d3-da01-4f02-cc27-94068e66a7fb",
+                            "content": "OK, 1 row affected in 14.948ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 30
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 41,
+                "end": 42,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "6e704704-6b56-47fd-f78e-3ae6165e0f4d",
+                            "content": "OK, 1 row affected in 11.9ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 30
+                        },
+                        "contentStart": 1,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 43,
+                "end": 43,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "62ac4d98-b74b-4f72-96f8-6cdc4a24df56"
                     ]
                 },
                 "currentHeight": 114.59375,
@@ -324,8 +751,8 @@
             },
             "data": [
                 {
-                    "tabId": "0b931951-0f2d-4aff-f1b8-67e0e1303d7d",
-                    "resultId": "fbe63ad7-d414-4c3e-fefc-b7a4eca69ef0",
+                    "tabId": "49c9680a-84c1-4700-92b4-1c6617fec50e",
+                    "resultId": "62ac4d98-b74b-4f72-96f8-6cdc4a24df56",
                     "rows": [
                         {
                             "0": 1,
@@ -413,7 +840,7 @@
                         }
                     ],
                     "executionInfo": {
-                        "text": "OK, 2 records retrieved in 2.729ms"
+                        "text": "OK, 2 records retrieved in 2.278ms"
                     },
                     "totalRowCount": 2,
                     "hasMoreRows": false,
@@ -427,8 +854,8 @@
         },
         {
             "state": {
-                "start": 26,
-                "end": 26,
+                "start": 44,
+                "end": 44,
                 "language": "mysql",
                 "currentSet": 1,
                 "statements": [

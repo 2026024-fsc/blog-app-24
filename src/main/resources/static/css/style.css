@@ -1,180 +1,53 @@
-/* 全体のリセットと共通設定 */
-body {
-    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-}
-
-/* コンテナ（中央寄せと幅の制限） */
-body > *:not(header) {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-/* ヘッダーのスタイリング */
-header {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #2c3e50;
-    margin-right: auto; /* タイトルを左端、リンクを右端に寄せる */
-}
-
-header a {
-    color: #3498db;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header a:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* ブログ詳細画面の装飾 */
-span[th\:text*="title"] {
-    display: block;
-    font-size: 28px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-top: 20px;
-}
-
-span[th\:text*="created_at"] {
-    display: block;
-    font-size: 14px;
-    color: #7f8c8d;
-    margin-bottom: 20px;
-}
-
-span[th\:text*="main_text"] {
-    display: block;
-    font-size: 16px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    white-space: pre-wrap; /* 改行を反映させる */
-}
-
-/* ブログ一覧画面の装飾 */
+/* ==========================================
+   ブログ一覧画面の装飾（ここを差し替え）
+   ========================================== */
 nav table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* 隙間をあける設定 */
+    border-spacing: 0 15px;    /* 縦のカード同士の隙間を15pxにする */
+    margin-top: 10px;
 }
 
 nav tr {
-    display: block;
-    background: #ffffff;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+    display: table-row; /* テーブルの行として正しく配置 */
 }
 
-nav tr:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
+/* ひとつの記事全体を囲む箱（カード） */
 nav a {
     display: block;
-    padding: 20px;
-    text-decoration: none;
-    color: inherit;
+    background-color: #ffffff;      /* カードの背景は白 */
+    border: 1px solid #e2e8f0;      /* はっきりとした薄いグレーの枠線 */
+    border-radius: 8px;             /* 角を丸くする */
+    padding: 20px;                  /* 内側の余白 */
+    text-decoration: none;          /* 下線を消す */
+    color: #2d3748;                 /* 文字色 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* 軽い影 */
+    transition: all 0.2s ease-in-out; /* 動くときのアニメーション */
 }
 
+/* マウスを乗せた（ホバーした）ときの動き */
+nav a:hover {
+    transform: translateY(-3px);    /* 上に3ピクセル浮き上がる */
+    border-color: #3182ce;          /* 枠線がきれいな青になる */
+    box-shadow: 0 10px 15px -3px rgba(166, 213, 250, 0.3); /* 青っぽい影をつけて目立たせる */
+    background-color: #f7fafc;      /* 背景をほんのり明るく */
+}
+
+/* カードの中のタイトル */
 nav span[th\:text*="title"] {
-    font-size: 20px;
-    color: #2c3e50;
-    margin: 0 0 5px 0;
-}
-
-/* フォーム（新規投稿）の装飾 */
-h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-}
-
-form {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-form div {
-    margin-bottom: 20px;
-}
-
-form label {
     display: block;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 8px;
-    color: #34495e;
+    color: #1a202c;
+    margin-bottom: 8px;            /* 日付との間に隙間を作る */
 }
 
-form input[type="text"],
-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-form input[type="text"]:focus,
-form textarea:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-form textarea {
-    height: 200px;
-    resize: vertical;
-}
-
-/* ボタンの装飾 */
-button[type="submit"] {
-    background-color: #2ecc71;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #27ae60;
-}
-
-form div a {
-    color: #e74c3c;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 16px;
-}
-
-form div a:hover {
-    text-decoration: underline;
+/* カードの中の日付 */
+nav span[th\:text*="created_at"] {
+    display: inline-block;
+    font-size: 13px;
+    color: #718096;
+    background-color: #edf2f7;      /* 日付の後ろに薄いグレーの背景を敷く */
+    padding: 2px 8px;
+    border-radius: 4px;             /* タグっぽく見せる */
 }

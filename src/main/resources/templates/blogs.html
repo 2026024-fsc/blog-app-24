@@ -19,7 +19,7 @@
 
 
     <span th:text="${solo.title}">タイトルが表示</span><br>
-    <span th:text="${solo.created_at}">日付が表示</span><br>
+    <!-- <span th:text="${#temporals.format(solo.created_at, 'MM/dd HH:mm')}">日付が表示</span><br> -->
     <span th:text="${solo.main_text}">本文が表示</span><br>
 </body>
 

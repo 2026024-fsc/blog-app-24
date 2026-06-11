@@ -21,7 +21,7 @@
 
 
     <h2>新規投稿</h2>
-    <form action="@{/main}" method="post">
+    <form th:action="@{/main}" method="post">
         <!-- タイトル送信フォームを作る -->
         <div class="blogTitle">
             <label for="title">タイトル</label><br>
@@ -32,7 +32,7 @@
         <div class="blogMainText">
             <label for="mainText">本文</label><br>
             <textarea name="main_text" placeholder="本文"
-            minlength="1" maxlength="1000"></textarea><br>
+            minlength="1" maxlength="1000" cols="100" rows="10"></textarea><br>
         </div>
 
         <!-- 保存・キャンセルボタン -->
