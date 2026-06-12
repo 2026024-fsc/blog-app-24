@@ -1,5 +1,5 @@
 /* ==========================================
-   1. 全体のベース設定
+   1. 全体のベース設定（落ち着いたこなれ感）
    ========================================== */
 * {
     box-sizing: border-box;
@@ -8,66 +8,84 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-    background-color: #f1f5f9; /* 親しみやすく落ち着いたライトグレー */
-    color: #333333;
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+    background-color: #f7f4f0; /* 甘さを抑えた、リネンや砂浜のようなエクリュベージュ */
+    color: #4a3f35; /* 深みのあるローストコーヒーブラウン */
+    line-height: 1.7;
     padding-bottom: 60px;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ついつい増えがちな連続<br>の余白を少し抑える */
+/* 連続<br>の無駄な隙間をカット */
 br {
     content: "";
-    margin: 4px 0;
+    margin: 2px 0;
     display: block;
 }
 
 /* ==========================================
-   2. ヘッダー（全画面共通）
+   2. ヘッダー（シンプルで洗練されたセレクトショップ風）
    ========================================== */
 header {
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    padding: 1.2rem 10%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    margin-bottom: 40px;
+    padding: 1.4rem 10%;
+    box-shadow: 0 2px 12px rgba(74, 63, 53, 0.04);
+    margin-bottom: 50px;
 }
 
 header h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #111111;
-    margin-right: auto; /* メニューを右に寄せる */
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #2b221a; /* 凛とした深いビターブラウン */
+    margin-right: auto;
 }
 
 header a {
     text-decoration: none;
-    color: #666666;
-    font-size: 0.95rem;
+    color: #8c7e74;
+    font-size: 0.9rem;
     font-weight: 500;
-    margin-left: 2rem;
-    transition: color 0.2s ease;
+    margin-left: 2.5rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* リンクの下にシンプルな線をふわっと出す */
+header a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #c4a482;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 
 header a:hover {
-    color: #4f46e5; /* 洗練されたインディゴブルー */
+    color: #c4a482; /* こなれたゴールドベージュ */
+}
+
+header a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 /* ==========================================
-   3. 【一覧画面】用の設定（ズレ完全防止版）
+   3. 【一覧画面】くすみニュアンスカラーのカード
    ========================================== */
 nav {
-    max-width: 800px;
+    max-width: 680px;
     margin: 40px auto;
     padding: 0 20px;
-    display: block;
 }
 
-/* テーブル、ボディ、行など、ブラウザが自動生成・修復する
-   すべてのタグの「テーブル機能」を完全に破壊して無効化します。
-*/
+/* テーブル構造を完全リセット */
 nav table, 
 nav tbody, 
 nav tr {
@@ -80,74 +98,73 @@ nav tr {
     margin: 0 !important;
 }
 
-/* ★ここが重要：
-   ブラウザによって外に追い出された「aタグ」そのものを
-   1個の独立した立体カードとして贅沢に装飾します。
-*/
+/* 記事カード本体 */
 nav a {
     display: block !important;
     width: 100% !important;
-    margin-bottom: 24px !important; /* カードとカードの間の確実なすき間 */
-    padding: 26px !important;        /* カードの内側のゆとり */
+    margin-bottom: 24px !important;
+    padding: 26px 30px !important;
     text-decoration: none !important;
-    border-radius: 16px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
+    border-radius: 16px !important; /* 丸みを少し落ち着かせてスマートに */
+    box-shadow: 0 4px 16px rgba(74, 63, 53, 0.03) !important;
+    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.3s ease !important;
 }
 
-/* タイトル（上側の文字）を強制的にブロック化 */
+/* マウスホバー：上品にすっと浮き上がる */
+nav a:hover {
+    transform: translateY(-4px) !important;
+}
+
+/* 記事タイトル */
 nav a span:first-of-type {
     display: block !important;
-    font-size: 1.3rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 8px !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 12px !important;
     line-height: 1.4 !important;
 }
 
-/* 日付（下側の文字） */
+/* 日付 */
 nav a span:last-of-type {
-    display: block !important;
-    font-size: 0.85rem !important;
+    display: inline-block !important;
+    font-size: 0.8rem !important;
+    font-weight: 500;
+    letter-spacing: 0.03em;
 }
 
-/* ------------------------------------------
-   ✨ 1個ずつ違う雰囲気に変化させる（奇数・偶数）
-   ------------------------------------------ */
+/* --- 🌿 1個ずつニュアンスの違う大人カラー（奇数・偶数） --- */
 
-/* 【1, 3, 5つ目の記事】ホワイト×インディゴブルー */
+/* 【奇数（1, 3, 5つ目）】シアーなピスタチオグリーン */
 nav a:nth-of-type(odd) {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #f1f4f0 !important;
+    border: 1px solid #e1e7e0 !important;
 }
-nav a:nth-of-type(odd) span:first-of-type { color: #0f172a !important; }
-nav a:nth-of-type(odd) span:last-of-type { color: #64748b !important; }
+nav a:nth-of-type(odd) span:first-of-type { color: #3b4738 !important; }
+nav a:nth-of-type(odd) span:last-of-type { color: #73826f !important; }
 
 nav a:nth-of-type(odd):hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.15) !important;
+    background-color: #ebf0ea !important;
+    box-shadow: 0 12px 24px rgba(115, 130, 111, 0.12) !important;
 }
-nav a:nth-of-type(odd):hover span:first-of-type { color: #4f46e5 !important; }
 
-
-/* 【2, 4, 6つ目の記事】ダークチャコール×ミントグリーン */
+/* 【偶数（2, 4, 6つ目）】シアーなアプリコットベージュ */
 nav a:nth-of-type(even) {
-    background-color: #1e293b !important;
-    border: 1px solid #334155 !important;
+    background-color: #f5f0eb !important;
+    border: 1px solid #e9dfd5 !important;
 }
-nav a:nth-of-type(even) span:first-of-type { color: #f8fafc !important; }
-nav a:nth-of-type(even) span:last-of-type { color: #94a3b8 !important; }
+nav a:nth-of-type(even) span:first-of-type { color: #5c4b3c !important; }
+nav a:nth-of-type(even) span:last-of-type { color: #94806e !important; }
 
 nav a:nth-of-type(even):hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 12px 24px rgba(16, 185, 129, 0.25) !important;
+    background-color: #f0e7de !important;
+    box-shadow: 0 12px 24px rgba(148, 128, 110, 0.12) !important;
 }
-nav a:nth-of-type(even):hover span:first-of-type { color: #34d399 !important; }
+
 /* ==========================================
-   4. 【詳細画面】用の設定（直書きのspanを装飾）
+   4. 【詳細画面】無垢なリネンノート
    ========================================== */
-/* ヘッダーの直後にある詳細画面の要素を中央寄せのカード風に配置 */
 body > span {
-    max-width: 800px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 0 20px;
     display: block;
@@ -155,49 +172,49 @@ body > span {
 
 /* 詳細：タイトル */
 body > span:nth-of-type(1) {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-top: 20px;
-    line-height: 1.4;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2b221a;
+    margin-top: 10px;
+    line-height: 1.5;
 }
 
 /* 詳細：日付 */
 body > span:nth-of-type(2) {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid #e2e8f0;
+    font-size: 0.85rem;
+    color: #8c7e74;
+    margin-bottom: 28px;
+    display: block;
+    margin-top: 8px;
 }
 
-/* 詳細：本文 */
+/* 詳細：本文（無駄のない洗練されたホワイト） */
 body > span:nth-of-type(3) {
-    font-size: 1.05rem;
-    color: #334155;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    color: #4a3f35;
+    line-height: 1.9;
     background-color: #ffffff;
-    padding: 36px;
+    padding: 40px;
     border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    white-space: pre-wrap; /* 改行を有効化 */
+    border: 1px solid #eae5df;
+    box-shadow: 0 4px 20px rgba(74, 63, 53, 0.02);
+    white-space: pre-wrap;
 }
 
 /* ==========================================
-   5. 【新規投稿画面】用の設定（フォーム）
+   5. 【新規投稿画面】すっきりとした美しいフォーム
    ========================================== */
 h2 {
-    max-width: 800px;
-    margin: 0 auto 24px;
+    max-width: 680px;
+    margin: 0 auto 30px;
     padding: 0 20px;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2b221a;
 }
 
 form {
-    max-width: 800px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -208,73 +225,73 @@ form {
 
 form label {
     font-weight: 600;
-    font-size: 0.95rem;
-    color: #475569;
+    font-size: 0.9rem;
+    color: #4a3f35;
     display: inline-block;
     margin-bottom: 8px;
 }
 
-/* 入力入力フォーム（スマホでも絶対はみ出さない仕様） */
+/* シンプルでマットな入力エリア */
 form input[type="text"],
 form textarea {
     width: 100%;
     max-width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #cbd5e1;
+    padding: 14px 18px;
+    border: 1px solid #dcd6ce;
     border-radius: 10px;
     background-color: #ffffff;
     font-family: inherit;
-    font-size: 1rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-size: 0.95rem;
+    color: #4a3f35;
+    transition: all 0.2s ease;
 }
 
 form input[type="text"]:focus,
 form textarea:focus {
     outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    border-color: #bfa38a;
+    box-shadow: 0 0 0 4px rgba(191, 163, 138, 0.15);
 }
 
-/* 保存・キャンセルボタンの配置エリア */
+/* ボタン配置 */
 form div:last-of-type {
-    margin-top: 32px;
+    margin-top: 36px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
 }
 
-/* 保存ボタン */
+/* 上品なマットブラウンの「保存」ボタン */
 form button[type="submit"] {
-    background-color: #4f46e5;
+    background-color: #5c4b3c;
     color: #ffffff;
     border: none;
-    padding: 12px 32px;
-    font-size: 1rem;
+    padding: 12px 36px;
+    font-size: 0.95rem;
     font-weight: 600;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 form button[type="submit"]:hover {
-    background-color: #4338ca;
+    background-color: #45372b;
 }
 
 form button[type="submit"]:active {
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
-/* キャンセルボタン */
+/* キャンセル */
 form div:last-of-type a {
-    color: #64748b;
+    color: #8c7e74;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     padding: 12px 20px;
     transition: color 0.2s ease;
 }
 
 form div:last-of-type a:hover {
-    color: #0f172a;
+    color: #2b221a;
 }
