@@ -1,53 +1,280 @@
 /* ==========================================
-   ブログ一覧画面の装飾（ここを差し替え）
+   1. 全体のベース設定
    ========================================== */
-nav table {
-    width: 100%;
-    border-collapse: separate; /* 隙間をあける設定 */
-    border-spacing: 0 15px;    /* 縦のカード同士の隙間を15pxにする */
-    margin-top: 10px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background-color: #f1f5f9; /* 親しみやすく落ち着いたライトグレー */
+    color: #333333;
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+/* ついつい増えがちな連続<br>の余白を少し抑える */
+br {
+    content: "";
+    margin: 4px 0;
+    display: block;
+}
+
+/* ==========================================
+   2. ヘッダー（全画面共通）
+   ========================================== */
+header {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 10%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #111111;
+    margin-right: auto; /* メニューを右に寄せる */
+}
+
+header a {
+    text-decoration: none;
+    color: #666666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-left: 2rem;
+    transition: color 0.2s ease;
+}
+
+header a:hover {
+    color: #4f46e5; /* 洗練されたインディゴブルー */
+}
+
+/* ==========================================
+   3. 【一覧画面】用の設定（ズレ完全防止版）
+   ========================================== */
+nav {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: block;
+}
+
+/* テーブル、ボディ、行など、ブラウザが自動生成・修復する
+   すべてのタグの「テーブル機能」を完全に破壊して無効化します。
+*/
+nav table, 
+nav tbody, 
 nav tr {
-    display: table-row; /* テーブルの行として正しく配置 */
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* ひとつの記事全体を囲む箱（カード） */
+/* ★ここが重要：
+   ブラウザによって外に追い出された「aタグ」そのものを
+   1個の独立した立体カードとして贅沢に装飾します。
+*/
 nav a {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 24px !important; /* カードとカードの間の確実なすき間 */
+    padding: 26px !important;        /* カードの内側のゆとり */
+    text-decoration: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
+}
+
+/* タイトル（上側の文字）を強制的にブロック化 */
+nav a span:first-of-type {
+    display: block !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.4 !important;
+}
+
+/* 日付（下側の文字） */
+nav a span:last-of-type {
+    display: block !important;
+    font-size: 0.85rem !important;
+}
+
+/* ------------------------------------------
+   ✨ 1個ずつ違う雰囲気に変化させる（奇数・偶数）
+   ------------------------------------------ */
+
+/* 【1, 3, 5つ目の記事】ホワイト×インディゴブルー */
+nav a:nth-of-type(odd) {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+nav a:nth-of-type(odd) span:first-of-type { color: #0f172a !important; }
+nav a:nth-of-type(odd) span:last-of-type { color: #64748b !important; }
+
+nav a:nth-of-type(odd):hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.15) !important;
+}
+nav a:nth-of-type(odd):hover span:first-of-type { color: #4f46e5 !important; }
+
+
+/* 【2, 4, 6つ目の記事】ダークチャコール×ミントグリーン */
+nav a:nth-of-type(even) {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+}
+nav a:nth-of-type(even) span:first-of-type { color: #f8fafc !important; }
+nav a:nth-of-type(even) span:last-of-type { color: #94a3b8 !important; }
+
+nav a:nth-of-type(even):hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 24px rgba(16, 185, 129, 0.25) !important;
+}
+nav a:nth-of-type(even):hover span:first-of-type { color: #34d399 !important; }
+/* ==========================================
+   4. 【詳細画面】用の設定（直書きのspanを装飾）
+   ========================================== */
+/* ヘッダーの直後にある詳細画面の要素を中央寄せのカード風に配置 */
+body > span {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: block;
-    background-color: #ffffff;      /* カードの背景は白 */
-    border: 1px solid #e2e8f0;      /* はっきりとした薄いグレーの枠線 */
-    border-radius: 8px;             /* 角を丸くする */
-    padding: 20px;                  /* 内側の余白 */
-    text-decoration: none;          /* 下線を消す */
-    color: #2d3748;                 /* 文字色 */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* 軽い影 */
-    transition: all 0.2s ease-in-out; /* 動くときのアニメーション */
 }
 
-/* マウスを乗せた（ホバーした）ときの動き */
-nav a:hover {
-    transform: translateY(-3px);    /* 上に3ピクセル浮き上がる */
-    border-color: #3182ce;          /* 枠線がきれいな青になる */
-    box-shadow: 0 10px 15px -3px rgba(166, 213, 250, 0.3); /* 青っぽい影をつけて目立たせる */
-    background-color: #f7fafc;      /* 背景をほんのり明るく */
+/* 詳細：タイトル */
+body > span:nth-of-type(1) {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 20px;
+    line-height: 1.4;
 }
 
-/* カードの中のタイトル */
-nav span[th\:text*="title"] {
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    color: #1a202c;
-    margin-bottom: 8px;            /* 日付との間に隙間を作る */
+/* 詳細：日付 */
+body > span:nth-of-type(2) {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0;
 }
 
-/* カードの中の日付 */
-nav span[th\:text*="created_at"] {
+/* 詳細：本文 */
+body > span:nth-of-type(3) {
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.8;
+    background-color: #ffffff;
+    padding: 36px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    white-space: pre-wrap; /* 改行を有効化 */
+}
+
+/* ==========================================
+   5. 【新規投稿画面】用の設定（フォーム）
+   ========================================== */
+h2 {
+    max-width: 800px;
+    margin: 0 auto 24px;
+    padding: 0 20px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.blogTitle, .blogMainText {
+    margin-bottom: 24px;
+}
+
+form label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #475569;
     display: inline-block;
-    font-size: 13px;
-    color: #718096;
-    background-color: #edf2f7;      /* 日付の後ろに薄いグレーの背景を敷く */
-    padding: 2px 8px;
-    border-radius: 4px;             /* タグっぽく見せる */
+    margin-bottom: 8px;
+}
+
+/* 入力入力フォーム（スマホでも絶対はみ出さない仕様） */
+form input[type="text"],
+form textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* 保存・キャンセルボタンの配置エリア */
+form div:last-of-type {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* 保存ボタン */
+form button[type="submit"] {
+    background-color: #4f46e5;
+    color: #ffffff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #4338ca;
+}
+
+form button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* キャンセルボタン */
+form div:last-of-type a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 12px 20px;
+    transition: color 0.2s ease;
+}
+
+form div:last-of-type a:hover {
+    color: #0f172a;
 }
